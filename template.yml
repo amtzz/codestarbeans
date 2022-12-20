@@ -2,9 +2,6 @@ AWSTemplateFormatVersion: 2010-09-09
 Transform:
 - AWS::CodeStar
 
-Conditions:
-  UseSubnet: !Not [!Equals [!Ref 'SubnetId', subnet-none]]
-
 Parameters:
   ProjectId:
     Type: String
@@ -20,7 +17,7 @@ Parameters:
     Description: The ID of the Amazon Virtual Private Cloud (VPC) used for the new Amazon EC2 Linux instances.
   SubnetIds:
     Type: List<AWS::EC2::Subnet::Id>
-    Description: ID of the VPCs subnets
+    Description: The IDs of the VPC subnets used for the new Amazon EC2 linux instances launched for this project.
   SolutionStackName:
     Type: String
     Description: The software stack used to launch environments and configure instances in AWS Elastic Beanstalk.
